@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+	<head>
+		<title>HashP Password Hash Generator</title>
+		<link href="/assets/bootstrap.min.css" rel="stylesheet" />
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<script src="/assets/sha512.js"></script>
+		<script src="/assets/hmac.js"></script>
+		<script>
+			var userfield;
+			var passfield;
+			var result;
+			var form;
+			var infotext;
+
+			function init() {
+				userfield = document.getElementById('username');
+				passfield = document.getElementById('password');
+				result = document.getElementById('result');
+				form = document.getElementById('form');
+				infotext = document.getElementById('infotext');
+				form.onsubmit = generate;
+				reset();
+			}
+
+			function reset() {
+				userfield.value = '';
+				passfield.value = '';
+				result.style.display = 'none';
+				infotext.style.display = 'none'
+			}
+
+			function generate(e) {
+				if (e) e.preventDefault();
+				if (!userfield.value || !passfield.value)
+					return;
+				var line = hmac(userfield.value, passfield.value);
+				result.style.display = 'block';
+				result.textContent = line;
+				infotext.style.display = 'block';
+				return false;
+			}
+
+			window.addEventListener('load', init);
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<form id="form">
+				<fieldset>
+					<legend>HashP Password Hash Generator</legend>
+					<p>Enter your desired username and password, and click generate.</p>
+					<p>
+						<input type="text" name="username" id="username" placeholder="username" /><br />
+						<input type="password" name="password" id="password" placeholder="password" /><br />
+						<input type="submit" value="Generate">
+						<button onclick="reset();">Reset</button><br />
+					</p>
+					<pre id="result">
+					</pre>
+					<p id="infotext">
+					Copy and paste the above line into a <a href="https://github.com/bahamas10/node-hashp">HashP</a> file.
+					</p>
+				</fieldset>
+			</form>
+		</div>
+	</body>
+</html>
