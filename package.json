@@ -1,0 +1,29 @@
+{
+  "name": "hashp",
+  "version": "0.0.0",
+  "description": "Manage users and hashed passwords using sha-512 with variable iterations",
+  "main": "lib/hashp.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "for f in tests/*.js; do echo \"$f\"; node \"$f\" || exit 1; done; echo passed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bahamas10/node-hashp.git"
+  },
+  "keywords": [
+    "template"
+  ],
+  "author": "Dave Eddy <dave@daveeddy.com> (http://www.daveeddy.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahamas10/node-hashp/issues"
+  },
+  "homepage": "https://github.com/bahamas10/node-hashp#readme",
+  "dependencies": {
+    "has": "^1.0.1",
+    "templer": "0.0.0"
+  }
+}
