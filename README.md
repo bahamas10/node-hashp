@@ -3,6 +3,9 @@ node-hashp
 
 Manage users and hashed passwords using sha-512 with variable iterations
 
+Note: to create `HashP` formatted lines you can use http://bahamas10.github.io/node-hashp/ -
+all processing is done on the client side.
+
 Usage
 -----
 
