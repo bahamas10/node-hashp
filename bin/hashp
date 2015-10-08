@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+/**
+ * hashp generator script
+ *
+ * Author: Dave Eddy <dave@daveeddy.com>
+ * Date: October 08, 2015
+ * License: MIT
+ */
+
+var fs = require('fs');
+
+var hashp = require('../');
+
+var user = process.argv[2];
+if (!user) {
+  console.error('error: user must be specified as the first argument');
+  process.exit(1);
+}
+
+var pass = fs.readFileSync('/dev/stdin', 'utf8');
+var l = hashp.createUserHash(user, pass);
+console.log(l);
