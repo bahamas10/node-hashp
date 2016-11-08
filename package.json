@@ -1,6 +1,6 @@
 {
   "name": "hashp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Manage users and hashed passwords using sha-512 with variable iterations",
   "main": "lib/hashp.js",
   "directories": {
