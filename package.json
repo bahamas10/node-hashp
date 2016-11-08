@@ -9,6 +9,9 @@
   "scripts": {
     "test": "for f in tests/*.js; do echo \"$f\"; node \"$f\" || exit 1; done; echo passed"
   },
+  "bin": {
+    "hashp": "./bin/hashp"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/bahamas10/node-hashp.git"
