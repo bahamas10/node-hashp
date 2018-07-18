@@ -25,9 +25,16 @@ var line = hashp.createUserHash('dave', 'foobar');
 - `opts.iterations` - number of iterations, defaults to a random number between 50 and 150
 - `opts.salt` - salt to hash with, defaults to something random
 
-### `var hp = new hashp.HashP(s)`
+### `var hp = new hashp.HashP(s, opts)`
 
 Create a `HashP` object with a given string of newline separated hashed password strings
+
+- `s` - the string of hashp file format
+- `opts.duplicates` - how to handle duplicate usernames, possibilities are:
+
+- `opts.duplicates` === `ignore`: (default) last username in the text file wins
+- `opts.duplicates` === `throw`: throw an error if a duplicate username is fuond
+- `opts.duplicates` === `allow`: allows duplicates usernames (stored as an array)
 
 `passwords.txt`
 
